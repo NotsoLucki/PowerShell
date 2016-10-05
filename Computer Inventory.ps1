@@ -12,6 +12,7 @@
 ## Hard drive size
 ## MAC Address
 ## IP Address
+# and spits it out into a .CSV file on the C:\ drive
 
 ## This section looks for the computer information on the local machine
 $CPUinfo = Get-WmiObject win32_processor
