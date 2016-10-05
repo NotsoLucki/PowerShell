@@ -1,6 +1,17 @@
-cls
-
-#Script to grab system information
+# Script to grab the following system information:
+## Computer Name
+## Most recent user
+## BIOS Version
+## Service Tag/Serial Number
+## Manufacturer
+## Model
+## Processor
+## Number of Cores
+## OS
+## Memory
+## Hard drive size
+## MAC Address
+## IP Address
 
 ## This section looks for the computer information on the local machine
 $CPUinfo = Get-WmiObject win32_processor
@@ -12,8 +23,8 @@ $PhysicalMemory = Get-WmiObject cim_physicalmemory | Measure-Object -Property ca
 $HardDrive = Get-WmiObject win32_volume -Filter 'drivetype = 3' | Where-Object {$_.driveletter -match 'C:'}
 $HDsize = [math]::Round($HardDrive.Capacity /1GB, 2)
 $Network = Get-WmiObject win32_networkadapterconfiguration | Where-Object {$_.IPEnabled}
-$MACaddress = $Network.MACAddress#[1]
-$IPaddress = $Network.IpAddress#[4]
+$MACaddress = $Network.MACAddress
+$IPaddress = $Network.IpAddress
 
 
 ## This takes the functions from above and grabs the specific parts
