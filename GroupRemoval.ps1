@@ -1,0 +1,1 @@
+﻿Remove-ADGroupMember -Identity GroupName -Members UserName, ComputerName$ -whatif
